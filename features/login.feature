@@ -15,8 +15,11 @@ Feature: Login Test
       | visual_user   | secret_sauce |
 
   @negative @tc-2
-  Scenario: Login with Wrong Password
-    And user input "standard_user" as username
-    And user input "wrong_password" as password
-    When user click login button
+  Scenario Outline: Login with Wrong Password
+    When user login using "<username>" as username and "<password>" as password
     Then user should see error message "Epic sadface: Username and password do not match any user in this service"
+
+    Examples:
+      | username      | password       |
+      | standard_user | wrong_password |
+      | standard_user | password123    |

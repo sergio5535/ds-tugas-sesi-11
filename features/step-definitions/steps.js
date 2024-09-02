@@ -18,18 +18,6 @@ Then('user should be redirected to home page', async () => {
     await HomePage.validateOnHomePage();
 })
 
-Given('user input {string} as username', async (username) => {
-    await LoginPage.inputUsername(username);
-})
-
-Given('user input {string} as password', async (password) => {
-    await LoginPage.inputPassword(password);
-})
-
-When('user click login button', async () => {
-    await LoginPage.clickLoginButton();
-})
-
 Then('user should see error message {string}', async (errorMessage) => {
     await LoginPage.validateWrongPasswordDisplayed(errorMessage);
 })
